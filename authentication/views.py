@@ -8,6 +8,4 @@ from rest_framework.response import Response
 
 class HelloAuthView(generics.GenericAPIView):
   def get(self, request):
-      return(data={"message": "How are you?"},
-       status = status.HTTP_200_OK
-      )
+      return Response(data={"message":"How are you?"},status=status.HTTP_200_OK)
