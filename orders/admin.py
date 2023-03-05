@@ -9,4 +9,5 @@ from .models import Order
 class OrderAdmin(admin.ModelAdmin):
     # *  Specifying the fields to be displayed in the admin interface for the Order model.
     list_display = ['size', 'order_status', 'quantity', 'created_at']
+    # * Adding filters to the admin interface for the Order model based on the specified fields.
     list_filter = ['created_at', 'order_status', 'size']
