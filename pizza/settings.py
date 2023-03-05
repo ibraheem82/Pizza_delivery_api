@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'authentication.apps.AuthenticationConfig',
-    'orders.apps.OrdersConfig'
+    'orders.apps.OrdersConfig',
+
+    # * External libary
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
