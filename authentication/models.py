@@ -37,11 +37,16 @@ class CustomUserManager(BaseUserManager):
 
         return new_user
 
+# This is a method definition for creating a superuser with specified fields.
     def create_superuser(self, email, password, **extra_fields):
+
+      # These lines set default values for is_staff, is_superuser, and is_active in extra_fields to True.
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
 
+
+# These lines check that is_staff, is_superuser, and is_active in extra_fields are all True, and raise a ValueError with a corresponding message if any of them are not.
         if extra_fields.get('is_staff') is not True:
             raise ValueError(_("Superuser should have is staff as True"))
 
@@ -50,18 +55,28 @@ class CustomUserManager(BaseUserManager):
 
         if extra_fields.get('is_active') is not True:
             raise ValueError(_("Superuser should have is active as True"))
+
+          # This line calls the create_user method in the CustomUserManager class with the provided email, password, and extra_fields.
         return self.create_user(email, password, **extra_fields)
 
 
+# * This is a model class called User that inherits from the AbstractUser model.
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(max_length=90, unique=True)
     phone_number = PhoneNumberField(null=False, unique=True)
 
+
+# * These class variables specify that the email field should be used as the unique identifier for a User, and that username and phone_number are required fields when creating a User.
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'phone_number']
 
+
+# This line assigns an instance of the CustomUserManager class to the objects attribute of the User class, which allows us to use the create_user and create_superuser methods defined in CustomUserManager to create User objects.
     objects = CustomUserManager()
+
+
+# This is a special method that returns a string representation of a User object, which in this case is simply the user's email address.
 
     def __str__(self):
         return f"<User {self.email}"
