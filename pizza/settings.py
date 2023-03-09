@@ -52,7 +52,6 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'authentication.User'
 
 
-# todo:  write commit message
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'error'
 }
