@@ -9,10 +9,6 @@ class UserCreationSerializer(serializers.ModelSerializer):
     phone_number = PhoneNumberField(allow_null=False, allow_blank=False)
     password = serializers.CharField(min_length=7)
 
-
-# TODO: start writing commits from here.
-
-
     class Meta:
         model = User
         fields = ['username', 'email', 'phone_number', 'password']
