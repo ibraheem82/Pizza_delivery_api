@@ -36,7 +36,7 @@ class Order(models.Model):
     # set quantity as an integer field
     quantity = models.IntegerField()
     # set created_at as a DateTimeField with auto_now_add set to True to automatically add creation timestamp
-    created_at = models.DateTimeField(auto_now_add=True)
+    date_purchased = models.DateTimeField(auto_now_add=True)
     # set updated_at as a DateTimeField with auto_now set to True to automatically add timestamp on each update
     updated_at = models.DateTimeField(auto_now=True)
 
