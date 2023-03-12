@@ -44,8 +44,8 @@ INSTALLED_APPS = [
 
     # * External libary
     'rest_framework',
-
     'phonenumber_field',
+    'djosar'
 ]
 
 
@@ -54,6 +54,16 @@ AUTH_USER_MODEL = 'authentication.User'
 
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'error'
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+
+# *This code defines a dictionary with one key-value pair where the key is 'AUTH_HEADER_TYPES' and the value is a tuple ('BEARER',). In Django Rest Framework Simple JWT, the AUTH_HEADER_TYPES setting specifies which types of authentication header should be used for token authentication. In this case, the 'BEARER' authentication header type is specified, indicating that token authentication should use the Authorization: Bearer <token> header format.
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES' : ('BEARER',),
 }
 
 
