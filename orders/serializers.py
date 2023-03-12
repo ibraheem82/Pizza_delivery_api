@@ -6,9 +6,9 @@ class OrderCreationSerializer(serializers.ModelSerializer):
   size = serializers.CharField(max_length=25)
   order_status = serializers.HiddenField(default='PENDING')
   quantity = serializers.IntegerField()
-  created_at = serializers.DateTimeField(default=serializers.CreateOnlyDefault(datetime.datetime.now))
+  date_purchased = serializers.DateTimeField(default=serializers.CreateOnlyDefault(datetime.datetime.now))
 
 
   class Meta:
     model = Order
-    fields = ['size', 'order_status', 'quantity', 'created_at']
+    fields = ['size', 'order_status', 'quantity', 'date_purchased']
