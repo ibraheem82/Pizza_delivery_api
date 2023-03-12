@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     # * External libary
     'rest_framework',
     'phonenumber_field',
-    'djosar'
+    'djoser'
 ]
 
 
@@ -54,7 +54,7 @@ AUTH_USER_MODEL = 'authentication.User'
 
 
 REST_FRAMEWORK = {
-    'NON_FIELD_ERRORS_KEY': 'error'
+    'NON_FIELD_ERRORS_KEY': 'error',
     'DEFAULT_AUTHENTICATION_CLASSES':(
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
