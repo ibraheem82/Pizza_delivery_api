@@ -20,6 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('orders/', include('orders.urls')),
-
-    path('auth/', include('djoser.urls')),
+  
+    # in the case of path('auth/', include('djoser.urls.jwt')), this code is defining a URL pattern that matches any URLs starting with auth/ and includes URL patterns from the djoser.urls.jwt module. Specifically, this line is telling Django to include URL patterns related to JWT authentication provided by the djoser library.
+ 
+    path('auth/', include('djoser.urls.jwt')),
 ]
