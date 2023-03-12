@@ -66,6 +66,12 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES' : ('BEARER',),
     "ACCESS_TOKEN_LIFETIME": timedelta(days=90),
+    # *Refresh tokens are long-lived tokens used to obtain new access tokens after the previous one has expired. When a user logs in, they receive an access token and a refresh token. The access token has a shorter lifetime than the refresh token, and when it expires, the user can use the refresh token to obtain a new access token without having to log in again.
+
+#* By setting the lifetime of the refresh token to 1 day, the system will force users to log in again at least once a day. This can help mitigate the risk of unauthorized access if a refresh token is stolen or leaked. However, it may also inconvenience users who need to frequently access the system and may have to log in multiple times a day.
+
+# * Overall, the choice of refresh token lifetime depends on the specific needs of the system and should be balanced between user convenience and security.
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=20),
 }
 
 
