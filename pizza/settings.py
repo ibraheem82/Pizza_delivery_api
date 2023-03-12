@@ -72,6 +72,8 @@ SIMPLE_JWT = {
 
 # * Overall, the choice of refresh token lifetime depends on the specific needs of the system and should be balanced between user convenience and security.
     "REFRESH_TOKEN_LIFETIME": timedelta(days=20),
+
+    'BLACKLIST_AFTER_ROTATION': False,
 }
 
 
