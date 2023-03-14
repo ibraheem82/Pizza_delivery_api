@@ -23,7 +23,16 @@ class OrderCreateListView(generics.GenericAPIView):
     return Response(data = serializer.data, status = status.HTTP_200_OK)
 
     def post(self, request):
-      pass
+      data = response.data
+
+      serializer  = self.serializer_class(data=data)
+
+      user = request.user
+
+      if serializer.is_valid():
+        serializer.save(customer = user)
+        return Response(data = serializer.data, status = status.HTTP_201_CREATED.OK)
+      return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 
 
